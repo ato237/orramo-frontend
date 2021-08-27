@@ -1,4 +1,5 @@
 import React from "react";
+import Calculator from "../Calculator";
 import { MainContentContainer, MainContentTitle,MainContentHeading } from "./MainContent";
 const MainContent = () => {
   return (
@@ -9,6 +10,7 @@ const MainContent = () => {
           Calculate mobile money Charges Fast and easily using Orramo's
           simplified calculated
         </MainContentHeading>
+        <Calculator/>
       </MainContentContainer>
     </>
   );
