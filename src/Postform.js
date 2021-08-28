@@ -64,6 +64,15 @@ function Postform() {
           />{" "}
           Withdraw
         </div>
+        <label style={{ paddingRight: "80px" }}>Withdraw</label>
+                  <input
+                    style={{ position: "relative", right:"80px" }}
+                    type="radio"
+                    name="status"
+                    value="withdraw"
+                  />
+                  <label>Sending</label>
+                  <input type="radio" name="status" value="send" />
         <div>
           <button type="submit">Submit</button>
         </div>
