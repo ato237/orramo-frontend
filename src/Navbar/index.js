@@ -22,7 +22,7 @@ const Navbar = () => {
       <NavbarContainer>
         <NavbarWrapper>
           <NavbarElements>
-            <NavLinksLogo>ORRAMO</NavLinksLogo>
+            <NavLinksLogo to ="/">ORRAMO</NavLinksLogo>
           </NavbarElements>
           <NavbarElements>
             <NavLinks>How it works</NavLinks>
@@ -40,7 +40,7 @@ const Navbar = () => {
               <MenuBar onClick={handleClick} />
             )}
 
-            <NavLinksButton>Get the App</NavLinksButton>
+            <NavLinksButton to='download'>Get the App</NavLinksButton>
           </NavbarElements>
         </NavbarWrapper>
       </NavbarContainer>

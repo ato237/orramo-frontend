@@ -24,16 +24,16 @@ const Footer = () => {
             <FooterLinkItems></FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle> Mobile App</FooterLinkTitle>
-              <FooterLink to="/signin">Get it Now</FooterLink>
-              <FooterLink to="/signin">More Info</FooterLink>
+              <FooterLink to="/download">Get it Now</FooterLink>
+              <FooterLink to="/download">More Info</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
           <FooterLinksWrapper>
             <FooterLinkItems>
             <FooterLinkTitle> Get help </FooterLinkTitle>
-              <FooterLink to="/signin">Support</FooterLink>
-              <FooterLink to="/signin">Contact</FooterLink>
-              <FooterLink to="/signin">Author</FooterLink>
+              <FooterLink to="/download">Support</FooterLink>
+              <FooterLink to="/download">Contact</FooterLink>
+              <FooterLink to="/download">Author</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
    

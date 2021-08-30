@@ -19,7 +19,7 @@ const ContentSection = () => {
         <ContentSectionText>
           <ContentH1>Mobile App Coming Soon</ContentH1>
           <ContentP>Continue using orramo on your browser and be first to be notified when we release our mobile app</ContentP>
-          <ContentAction>Notify Me!</ContentAction>
+          <ContentAction to ="/download">NotifyMe!</ContentAction>
         </ContentSectionText>
       </ContentSectionWrapper>
     </ContentSectionContainer>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {Link} from 'react-router-dom'
 export const ContentSectionContainer = styled.div`
   display: grid;
   z-index: 1;
@@ -63,7 +63,8 @@ export const ContentP = styled.p`
 
   }
 `;
-export const ContentAction = styled.button`
+export const ContentAction = styled(Link)`
+text-decoration: none;
   background-color: #ffa500;
   color: black;
   border: none;
@@ -92,9 +93,11 @@ export const ContentAction = styled.button`
     margin: 40px 130px;
     padding: 5px 30px;
     font-size: 15px;
-
-
-
-
+  }
+  @media screen and (max-width: 557px) {
+    transition: 0.2s ease-in-out;
+    margin: 40px 130px;
+    padding: 5px 30px;
+    font-size: 14px;
   }
 `;
