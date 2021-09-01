@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import {
   DownloadContainer,
   DownloadWrapper,
@@ -7,27 +7,32 @@ import {
   DownloadInfo,
   NotifyButton,
   Image,
-    Label,
-  ContentH1
+  Label,
+  ContentH1,
 } from "./DownloadElement";
 
 import img from "../Images/mobile.svg";
-
-
+import axios from "axios";
 
 const Download = () => {
   const [phone, setPhone] = useState(true);
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const person = { email };
+    console.log(person);
+    axios.post("http://localhost:8082/api/calculate/data", { email });
+    setMessage("Your info has been Succesfully sent!")
+  };
   return (
-      <DownloadContainer>
-          <DownloadWrapper>
+    <DownloadContainer>
+      <DownloadWrapper>
+        <Image src={img} />
 
-              <Image src={img} />
-              
-              <Form>
-              <ContentH1>Get Notified on release!</ContentH1>
+        <Form>
+          <ContentH1>Get Notified on release!</ContentH1>
 
           <TextField
             onChange={() => setPhone(!phone)}
@@ -50,8 +55,8 @@ const Download = () => {
             label="example@gmail.com"
             variant="outlined"
             helperText="Enter email"
-                  />
-                   <TextField
+          />
+          <TextField
             style={!phone ? { display: "none" } : { display: "block" }}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
@@ -59,11 +64,14 @@ const Download = () => {
             label="6xxx-xxx-xxx"
             variant="outlined"
             helperText="Enter phone number"
-          />
-    
-          <NotifyButton type="submit">Notify Me!</NotifyButton>
+        />
+               <h4>{message}</h4> 
+
+          <NotifyButton type="submit" onClick={handleSubmit}>
+            Notify Me!
+          </NotifyButton>
         </Form>
-      </DownloadWrapper>
+        </DownloadWrapper>
     </DownloadContainer>
   );
 };
