@@ -54,6 +54,7 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
+// eslint-disable-next-line
 const theme = createTheme({
   breakpoints: {
     values: {
