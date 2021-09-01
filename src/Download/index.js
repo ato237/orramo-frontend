@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import {
   DownloadContainer,
   DownloadWrapper,
   Form,
-  DownloadInfo,
   NotifyButton,
   Image,
-  Label,
   ContentH1,
 } from "./DownloadElement";
 
