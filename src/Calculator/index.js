@@ -177,7 +177,7 @@ const Calculator = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.post(
-      `http://localhost:8082/api/calculate/orange/${values}/${status}`,
+      ` https://orramo-backend2.herokuapp.com/api/calculate/orange/${values}/${status}`,
       {}
     ).then((response) => {
       console.log(response);
@@ -188,7 +188,7 @@ const Calculator = () => {
   const handleMtnSubmit = (e) => {
     e.preventDefault();
     Axios.post(
-      `http://localhost:8082/api/calculate/mtn/${values}/${statusmtn}`,
+      ` https://orramo-backend2.herokuapp.com/api/calculate/mtn/${values}/${statusmtn}`,
       {}
     ).then((response) => {
       console.log(response);

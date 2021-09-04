@@ -14,7 +14,7 @@ function Postform() {
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.post(
-      `http://localhost:8082/api/calculate/orange/${orangeValue}/${status}`,
+      `http://localhost:808/api/calculate/orange/${orangeValue}/${status}`,
       {}
     ).then((response) => {
       console.log(response);

@@ -21,7 +21,7 @@ const Download = () => {
     e.preventDefault();
     const person = { email };
     console.log(person);
-    axios.post("http://localhost:8082/api/calculate/data", { email });
+    axios.post(" https://orramo-backend2.herokuapp.com/api/calculate/data", { email });
     setMessage("Your info has been Succesfully sent!")
   };
   return (
