@@ -13,7 +13,7 @@ import Icon from '../Images/img5.svg'
 
 const ContentSection = () => {
   return (
-    <ContentSectionContainer>
+    <ContentSectionContainer id="download">
       <ContentSectionWrapper>
               <ContentSectionPhoto src={ Icon}/>
         <ContentSectionText>

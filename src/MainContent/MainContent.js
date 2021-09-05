@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainContentContainer = styled.div`
+export const MainContentContainer = styled.section`
   z-index:45;
   background-color: #14213d;
   height: 300px;

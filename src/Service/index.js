@@ -14,7 +14,7 @@ import {
 
 const Services = () => {
   return (
-    <ServicesContainer>
+    <ServicesContainer id ="service">
       <ServicesH1>ORRAMO in 3 steps</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>

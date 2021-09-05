@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {Link} from 'react-router-dom'
-export const ContentSectionContainer = styled.div`
+export const ContentSectionContainer = styled.section`
   display: grid;
   z-index: 1;
   height: 600px;

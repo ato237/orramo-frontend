@@ -4,7 +4,7 @@ import { MainContentContainer, MainContentTitle,MainContentHeading } from "./Mai
 const MainContent = () => {
   return (
     <>
-      <MainContentContainer>
+      <MainContentContainer >
         <MainContentTitle>Calculate Charges</MainContentTitle>
         <MainContentHeading>
           Calculate mobile money Charges Fast and easily using Orramo's

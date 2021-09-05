@@ -47,16 +47,16 @@ const Footer = () => {
               ATO © {new Date().getFullYear()} All rights reserved
             </WebsiteRights>
             <SocialIcons>
-              <SocialIconLinks href="/" target="_blank" arial-label="Facebool">
+              <SocialIconLinks href="https://www.facebook.com/tonybradl" arial-label="Facebool">
                 <FaFacebook />
               </SocialIconLinks>
-              <SocialIconLinks href="/" target="_blank" arial-label="Instagram">
+              <SocialIconLinks href="https://www.instagram.com/ato.production/" target="_blank" arial-label="Instagram">
                 <FaInstagram />
               </SocialIconLinks>
-              <SocialIconLinks href="/" target="_blank" arial-label="Youtube">
+              <SocialIconLinks href="https://www.youtube.com/channel/UCOjMQWMEOU8YHbFGBa6Kcxw" target="_blank" arial-label="Youtube">
                 <FaYoutube />
               </SocialIconLinks>
-              <SocialIconLinks href="/" target="_blank" arial-label="Twitter">
+              <SocialIconLinks href="/https://twitter.com/AtoBradley" target="_blank" arial-label="Twitter">
                 <FaTwitter />
               </SocialIconLinks>
             </SocialIcons>

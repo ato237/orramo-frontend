@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import {Link as Links} from 'react-router-dom'
 
 export const DownloadContainer = styled.div`
   height: 600px;
@@ -40,7 +40,7 @@ padding: 10px 150px 10px 0;
 
 }
 `
-export const NotifyButton = styled.button`
+export const NotifyButton = styled(Links)`
 border:none;
 border-radius: 2px;
   position: relative;
@@ -67,7 +67,7 @@ width: 100%;
     position: relative;
     bottom:40px;
     right: 50px;
-    width: 80%;
+    width: 50%;
     padding-bottom: 50px;
     
 }

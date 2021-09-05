@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -6,41 +6,65 @@ import {
   NavLinks,
   NavLinksLogo,
   NavLinksButton,
-  MenuBar,
-  MenuCross,
+  MobileIcon,
 } from "./NavbarElements";
+import { FaBars } from "react-icons/fa";
+import Icon from "../Images/logoora.png";
 
-const Navbar = () => {
-  const [click, isClicked] = useState(false);
-
-  const handleClick = () => {
-    isClicked(!click);
-  };
+const Navbar = ({ toggle }) => {
+ 
 
   return (
     <>
       <NavbarContainer>
         <NavbarWrapper>
           <NavbarElements>
-            <NavLinksLogo to ="/">ORRAMO</NavLinksLogo>
+            <NavLinksLogo to="/">
+              <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                <img
+                  style={{
+                    width: "80px",
+                    padding: "-50px",
+                    position: "relative",
+                    bottom: "30px",
+                    left:"10px"
+                  }}
+                  src={Icon}
+                  alt="logo"
+                />
+                ORRAMO
+              </div>
+            </NavLinksLogo>
           </NavbarElements>
           <NavbarElements>
-            <NavLinks>How it works</NavLinks>
+            <NavLinks
+              spy={true}
+              smooth={true}
+              offset={180}
+              duration={500}
+              to="service"
+            >
+              Services
+            </NavLinks>
           </NavbarElements>
           <NavbarElements>
-            <NavLinks>Services</NavLinks>
+            <NavLinks
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+              to="download"
+            >
+              Download
+            </NavLinks>
           </NavbarElements>
+          <NavbarElements></NavbarElements>
           <NavbarElements>
-            <NavLinks>Author</NavLinks>
-          </NavbarElements>
-          <NavbarElements>
-            {click ? (
-              <MenuCross onClick={handleClick} />
-            ) : (
-              <MenuBar onClick={handleClick} />
-            )}
+            <MobileIcon onClick={toggle}>
+              <FaBars />
+            </MobileIcon>
 
-            <NavLinksButton to='download'>Get the App</NavLinksButton>
+            <NavLinksButton to="download">Get the App</NavLinksButton>
           </NavbarElements>
         </NavbarWrapper>
       </NavbarContainer>
