@@ -293,7 +293,6 @@ const Calculator = () => {
                 {!loading ? (
                   <CircularProgress
                     className={classes.load}
-                    color="secondary"
                   />
                 ) : (
                   <p>Calculate</p>
@@ -364,7 +363,6 @@ const Calculator = () => {
                 {!loading ? (
                   <CircularProgress
                     className={classes.load}
-                    color="secondary"
                   />
                 ) : (
                   <p>Calculate</p>
