@@ -181,11 +181,10 @@ const Calculator = () => {
     isLoading(false);
     e.preventDefault();
     Axios.post(
-      ` https://orramo-backend2.herokuapp.com/api/calculate/orange/${values}/${status}`,
-      {}
+      `https://orramo-backend2.herokuapp.com/api/calculate/orange/${values}/${status}`,
+      {headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}}
     ).then((response) => {
       isLoading(true);
-      console.log(response);
       setData(response.data);
     });
   };
@@ -195,10 +194,9 @@ const Calculator = () => {
     e.preventDefault();
     Axios.post(
       ` https://orramo-backend2.herokuapp.com/api/calculate/mtn/${values}/${statusmtn}`,
-      {}
+      {headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}}
     ).then((response) => {
       isLoading(true);
-      console.log(response);
       setData(response.data);
     });
   };
