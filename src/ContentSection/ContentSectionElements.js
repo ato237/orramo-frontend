@@ -9,6 +9,8 @@ export const ContentSectionContainer = styled.section`
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+
+ 
 `;
 export const ContentSectionWrapper = styled.div`
   display: grid;
@@ -30,6 +32,12 @@ export const ContentSectionPhoto = styled.img`
     transition: 0.2s ease-in-out;
     width: 350px !important;
     height: 350px !important;
+  }
+  @media screen and (max-width: 360px) {
+    margin-left: 50px;
+    transition: 0.2s ease-in-out;
+    width: 250px !important;
+    height: 300px !important;
   }
 `;
 export const ContentSectionText = styled.div`
@@ -60,6 +68,11 @@ export const ContentP = styled.p`
   @media screen and (max-width: 400px) {
       margin-left: 30px;
     max-width: 300px;
+
+  }
+  @media screen and (max-width: 360px) {
+      margin-left: 20px;
+    max-width: 250px;
 
   }
 `;
@@ -98,6 +111,12 @@ text-decoration: none;
     transition: 0.2s ease-in-out;
     margin: 40px 130px;
     padding: 5px 30px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 360px) {
+    transition: 0.2s ease-in-out;
+    margin: 40px 120px;
+    padding: 5px 5px;
     font-size: 14px;
   }
 `;
