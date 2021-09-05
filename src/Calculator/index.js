@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import PropTypes from "prop-types";
 import { makeStyles, createTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { TextField, Button } from "@material-ui/core";
 import { CalculatorContainer } from "./CalculatorElements";
 import Axios from "axios";
@@ -162,10 +163,14 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "15px",
     },
   },
+  load: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 const Calculator = () => {
-  const [loading, isLoading] = useState(false);
+  const [loading, isLoading] = useState(true);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [values, setValues] = useState(1000);
@@ -175,26 +180,29 @@ const Calculator = () => {
   const [data, setData] = useState([]);
 
   const handleSubmit = (e) => {
+    isLoading(false);
     e.preventDefault();
     Axios.post(
       ` https://orramo-backend2.herokuapp.com/api/calculate/orange/${values}/${status}`,
       {}
     ).then((response) => {
+      isLoading(true);
       console.log(response);
       setData(response.data);
     });
-    isLoading(true);
   };
   const handleMtnSubmit = (e) => {
+    isLoading(false);
+
     e.preventDefault();
     Axios.post(
       ` https://orramo-backend2.herokuapp.com/api/calculate/mtn/${values}/${statusmtn}`,
       {}
     ).then((response) => {
+      isLoading(true);
       console.log(response);
       setData(response.data);
     });
-    isLoading(true);
   };
 
   const handleChange = (event, newValue) => {
@@ -257,7 +265,6 @@ const Calculator = () => {
                 variant="outlined"
                 helperText="Orange Money"
               />
-
               <TextField
                 onClick={handleSubmit}
                 value={status}
@@ -282,27 +289,31 @@ const Calculator = () => {
                 onClick={handleSubmit}
                 className={classes.button}
                 variant="contained"
+                type="submit"
               >
-                Calculate
+                {!loading ? (
+                  <CircularProgress
+                    className={classes.load}
+                    color="secondary"
+                  />
+                ) : (
+                  <p>Calculate</p>
+                )}
               </Button>
             </form>
-            {loading ? (
-              data.map((datum) => (
-                <h1 key={1}>
-                  {status !== "withdraw" ? (
-                    <h1 className={classes.charge}>
-                      Sending Charges : {datum.orangeCharge} Fcfa
-                    </h1>
-                  ) : (
-                    <h1 className={classes.charge}>
-                      Withdrawal charges : {datum.orangeCharge} Fcfa
-                    </h1>
-                  )}
-                </h1>
-              ))
-            ) : (
-              <ReactBootStrap.Spinner animation="border" />
-            )}
+            {data.map((datum) => (
+              <h1 key={1}>
+                {status !== "withdraw" ? (
+                  <h1 className={classes.charge}>
+                    Sending Charges : {datum.orangeCharge} Fcfa
+                  </h1>
+                ) : (
+                  <h1 className={classes.charge}>
+                    Withdrawal charges : {datum.orangeCharge} Fcfa
+                  </h1>
+                )}
+              </h1>
+            ))}
 
             {data.map((datum) => (
               <h3 className={classes.total} key={2}>
@@ -349,21 +360,30 @@ const Calculator = () => {
                 onClick={handleMtnSubmit}
                 className={classes.button}
                 variant="contained"
+                type="submit"
               >
-                Calculate
+                {!loading ? (
+                  <CircularProgress
+                    className={classes.load}
+                    color="secondary"
+                  />
+                ) : (
+                  <p>Calculate</p>
+                )}
               </Button>
             </form>
+
             {data.map((datum) => (
               <h1 key={1}>
-               {statusmtn === "send" ? (
-                    <h1 className={classes.charge}>
-                      Sending Charges : {datum.mtnCharge} Fcfa
-                    </h1>
-                  ) : (
-                    <h1 className={classes.charge}>
-                      Withdrawal charges : {datum.mtnCharge} Fcfa
-                    </h1>
-                  )}
+                {statusmtn === "send" ? (
+                  <h1 className={classes.charge}>
+                    Sending Charges : {datum.mtnCharge} Fcfa
+                  </h1>
+                ) : (
+                  <h1 className={classes.charge}>
+                    Withdrawal charges : {datum.mtnCharge} Fcfa
+                  </h1>
+                )}
               </h1>
             ))}
             {data.map((datum) => (

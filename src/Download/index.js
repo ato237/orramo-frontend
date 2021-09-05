@@ -21,8 +21,10 @@ const Download = () => {
     e.preventDefault();
     const person = { email };
     console.log(person);
-    axios.post(" https://orramo-backend2.herokuapp.com/api/calculate/data", { email });
-    setMessage("Your info has been Succesfully sent!")
+    axios.post(" https://orramo-backend2.herokuapp.com/api/calculate/data", {
+      email,
+    });
+    setMessage("Your info has been Succesfully sent!");
   };
   return (
     <DownloadContainer>
@@ -31,7 +33,6 @@ const Download = () => {
 
         <Form>
           <ContentH1>Get Notified on release!</ContentH1>
-
           <TextField
             onChange={() => setPhone(!phone)}
             id="outlined-select-currency-native"
@@ -62,14 +63,17 @@ const Download = () => {
             label="6xxx-xxx-xxx"
             variant="outlined"
             helperText="Enter phone number"
-        />
-               <h4>{message}</h4> 
-
-          <NotifyButton type="submit" onClick={handleSubmit}>
-            Notify Me!
-          </NotifyButton>
+          />
+          <h4>{message}</h4>{" "}
+          <button
+            style={{ background: "transparent", border: "none" }}
+            onClick={handleSubmit}
+          >
+            {" "}
+            <NotifyButton to="/download/thank-you">Notify Me! </NotifyButton>
+          </button>
         </Form>
-        </DownloadWrapper>
+      </DownloadWrapper>
     </DownloadContainer>
   );
 };

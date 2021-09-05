@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link as Links } from "react-scroll";
+import { Link  as Links } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
 import { FaBars as bar } from "react-icons/fa";
 import { ImCross as cross } from "react-icons/im";
@@ -34,6 +34,20 @@ export const NavLinksLogo = styled(LinkR)`
       transition: 0.2s ease-in-out;
       left: 50px;
       top: 20px;
+  }
+`;
+export const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: aliceblue;
   }
 `;
 export const NavLinksButton = styled(LinkR)`
