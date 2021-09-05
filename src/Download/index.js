@@ -19,8 +19,6 @@ const Download = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const person = { email };
-    console.log(person);
     axios.post(" https://orramo-backend2.herokuapp.com/api/calculate/data", {
       email,
     },{headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}});
