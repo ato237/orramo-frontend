@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link  as Links } from "react-scroll";
+import { Link as Links } from "react-scroll";
 import { Link as LinkR } from "react-router-dom";
 import { FaBars as bar } from "react-icons/fa";
 import { ImCross as cross } from "react-icons/im";
@@ -13,12 +13,24 @@ export const NavbarWrapper = styled.ul`
   background-color: #14213d;
   padding: 20px;
   margin: 0;
-  @media screen and (max-width: 910px){
-      padding: 32px;
-
-}
+  @media screen and (max-width: 910px) {
+    padding: 32px;
+  }
+`;
+export const LogoWrapper = styled.div`
+`;
+export const Pop = styled.p`
+position: relative;
+bottom: 105px;
+left: 70px;
 `;
 
+export const Image = styled.img`
+  width: 80px;
+  position: relative;
+  bottom: 30px;
+  left: 10px;
+`;
 export const NavbarElements = styled.li`
   padding-left: 40px;
 `;
@@ -30,10 +42,10 @@ export const NavLinksLogo = styled(LinkR)`
   text-decoration: none;
   color: white;
 
-  @media screen and (max-width: 910px){
-      transition: 0.2s ease-in-out;
-      left: 0;
-      top: 20px;
+  @media screen and (max-width: 910px) {
+    transition: 0.2s ease-in-out;
+    left: 0;
+    top: 20px;
   }
 `;
 export const MobileIcon = styled.div`
@@ -51,7 +63,7 @@ export const MobileIcon = styled.div`
   }
 `;
 export const NavLinksButton = styled(LinkR)`
-border-radius: 2px;
+  border-radius: 2px;
   position: absolute;
   right: 150px;
   font-size: 20px;
@@ -67,8 +79,8 @@ border-radius: 2px;
     opacity: 80%;
   }
 
-  @media screen and (max-width: 910px){
-      display: none;
+  @media screen and (max-width: 910px) {
+    display: none;
   }
 `;
 
@@ -81,32 +93,32 @@ export const NavLinks = styled(Links)`
     color: #fca311;
   }
 
-  @media screen and (max-width: 910px){
-      display: none;
+  @media screen and (max-width: 910px) {
+    display: none;
   }
 `;
 
 export const MenuBar = styled(bar)`
-display: none;
+  display: none;
   position: absolute;
   top: 18px;
   right: 50px;
   font-size: 25px;
   color: white;
   cursor: pointer;
-  @media screen and (max-width: 910px){
-      display: inline;
+  @media screen and (max-width: 910px) {
+    display: inline;
   }
 `;
 export const MenuCross = styled(cross)`
-display: none;
+  display: none;
   position: absolute;
   top: 18px;
   right: 50px;
   font-size: 25px;
   color: white;
   cursor: pointer;
-  @media screen and (max-width: 910px){
-      display: inline;
+  @media screen and (max-width: 910px) {
+    display: inline;
   }
 `;

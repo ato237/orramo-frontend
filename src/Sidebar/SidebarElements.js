@@ -15,7 +15,7 @@ export const SidebarContainer = styled.aside`
   left: 0;
   transition: 0.3s ease-in-out;
   opacity: $${({ isOpen }) => (isOpen ? "100%" : "0")};
-    top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+    top: ${({ isOpen }) => (isOpen ? "0" : "100%")};
 
     @media screen and (min-width:910px){
       display: none;
@@ -43,15 +43,17 @@ export const SidebarWrapper = styled.div`
 export const SidebarMenu = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 70px);
+  grid-template-rows: repeat(2, 70px);
   text-align: center;
 
   @media screen and (max-width: 480px) {
-    grid-template-rows: repeat(6, 60px);
+    grid-template-rows: repeat(2, 70px);
   }
 `;
 
 export const SidebarLink = styled(LinkS)`
+position: relative;
+right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,6 +93,12 @@ export const SidebarRoute = styled(LinkR)`
   &:hover {
     transition: all 0.2s ease-in-out;
     opacity: 70%;
+  }
+
+  @media screen and (max-width: 500px){
+    padding: 6px 30px;
+    font-size:20px;
+
   }
 `;
 

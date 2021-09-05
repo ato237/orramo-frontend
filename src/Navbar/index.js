@@ -7,6 +7,7 @@ import {
   NavLinksLogo,
   NavLinksButton,
   MobileIcon,
+  LogoWrapper,Image,Pop
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import Icon from "../Images/logoora.png";
@@ -20,20 +21,13 @@ const Navbar = ({ toggle }) => {
         <NavbarWrapper>
           <NavbarElements>
             <NavLinksLogo to="/">
-              <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                <img
-                  style={{
-                    width: "80px",
-                    padding: "-50px",
-                    position: "relative",
-                    bottom: "30px",
-                    left:"10px"
-                  }}
+              <LogoWrapper >
+                <Image
                   src={Icon}
                   alt="logo"
                 />
-                ORRAMO
-              </div>
+               <Pop>ORRAMO</Pop> 
+              </LogoWrapper>
             </NavLinksLogo>
           </NavbarElements>
           <NavbarElements>
