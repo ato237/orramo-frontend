@@ -163,8 +163,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   load: {
-    display: "flex",
-    justifyContent: "center",
+    
   },
 }));
 
