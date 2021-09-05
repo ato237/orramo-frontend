@@ -56,7 +56,7 @@ const Footer = () => {
               <SocialIconLinks href="https://www.youtube.com/channel/UCOjMQWMEOU8YHbFGBa6Kcxw" target="_blank" arial-label="Youtube">
                 <FaYoutube />
               </SocialIconLinks>
-              <SocialIconLinks href="/https://twitter.com/AtoBradley" target="_blank" arial-label="Twitter">
+              <SocialIconLinks href="https://twitter.com/AtoBradley" target="_blank" arial-label="Twitter">
                 <FaTwitter />
               </SocialIconLinks>
             </SocialIcons>

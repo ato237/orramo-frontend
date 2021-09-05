@@ -61,7 +61,7 @@ const theme = createTheme({
       ss: 350,
       xs: 500,
       sm: 600,
-
+      xx:300,
       md: 768,
       lg: 1280,
       xl: 1920,
@@ -109,6 +109,11 @@ const useStyles = makeStyles((theme) => ({
       // eslint-disable-line no-useless-computed-key
       margin: 0,
       width: "250px",
+    },
+    [theme.breakpoints.down("xx")]: {
+      // eslint-disable-line no-useless-computed-key
+      margin: 0,
+      width: "150px",
     },
   },
   form: {

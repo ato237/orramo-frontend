@@ -8,11 +8,11 @@ import {
   Image,
   ContentH1,
 } from "./DownloadElement";
-
 import img from "../Images/mobile.svg";
 import axios from "axios";
 
 const Download = () => {
+ 
   const [phone, setPhone] = useState(true);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -38,7 +38,7 @@ const Download = () => {
             SelectProps={{
               native: true,
             }}
-            helperText="Please Select charge type"
+            helperText="Please Select Info Type"
             variant="outlined"
           >
             <option>Phone Number</option>

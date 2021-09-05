@@ -113,6 +113,12 @@ text-decoration: none;
     padding: 5px 30px;
     font-size: 14px;
   }
+  @media screen and (max-width: 375px) {
+    transition: 0.2s ease-in-out;
+    margin: 40px 125px;
+    padding: 5px 5px;
+    font-size: 14px;
+  }
   @media screen and (max-width: 360px) {
     transition: 0.2s ease-in-out;
     margin: 40px 120px;
