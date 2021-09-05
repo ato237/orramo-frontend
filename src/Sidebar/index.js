@@ -14,7 +14,7 @@ const Sidebar = ({isOpen,toggle}) => {
                   <SidebarLink to='service' onClick={toggle}>
                       Service
                   </SidebarLink>
-                  <SidebarLink to='services' onClick={toggle}>
+                  <SidebarLink to='download' onClick={toggle}>
                       Download
                   </SidebarLink>
               </SidebarMenu>
