@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles, createTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -10,7 +10,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { TextField, Button } from "@material-ui/core";
 import { CalculatorContainer } from "./CalculatorElements";
 import Axios from "axios";
-import * as ReactBootStrap from "react-bootstrap";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

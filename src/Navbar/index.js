@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -12,11 +12,7 @@ import { FaBars } from "react-icons/fa";
 import Icon from "../Images/logoora.png";
 
 const Navbar = ({ toggle }) => {
-  const [click, isClicked] = useState(false);
-
-  const handleClick = () => {
-    isClicked(!click);
-  };
+ 
 
   return (
     <>
