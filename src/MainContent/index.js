@@ -8,7 +8,7 @@ const MainContent = () => {
         <MainContentTitle>Calculate Charges</MainContentTitle>
         <MainContentHeading>
           Calculate mobile money Charges Fast and easily using Orramo's
-          simplified calculated
+          simplified Calculator
         </MainContentHeading>
         <Calculator/>
       </MainContentContainer>
