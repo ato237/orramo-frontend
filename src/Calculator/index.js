@@ -274,7 +274,7 @@ const Calculator = () => {
                 {...a11yProps(1)}
               />
               <Tab
-                onClick={handleMtnSubmit}
+                onClick={handleEuSubmit}
                 label="EU Money"
                 {...a11yProps(1)}
               />
