@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TextField } from "@material-ui/core";
 import {
   DownloadContainer,
@@ -9,7 +9,6 @@ import {
   ContentH1,
 } from "./DownloadElement";
 import img from "../Images/mobile.svg";
-import axios from "axios";
 import { db } from "../config";
 import { addDoc, collection } from "firebase/firestore/lite";
 
@@ -17,7 +16,6 @@ const Download = () => {
   const [number, setNumber] = useState("");
   const [phone, setPhone] = useState(true);
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const contactCollectionRef = collection(db, "contact");
 
   const handleSubmit = async () => {
@@ -60,7 +58,6 @@ const Download = () => {
             variant="outlined"
             helperText="Enter phone number"
           />
-          <h4>{message}</h4>{" "}
           <button
             style={{ background: "transparent", border: "none" }}
             onClick={handleSubmit}

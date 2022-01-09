@@ -1,5 +1,4 @@
 import React from "react";
-import Currency from ".";
 import { MainContentContainer, MainContentTitle,MainContentHeading } from "./MainContentC";
 const MainContent = () => {
   return (
