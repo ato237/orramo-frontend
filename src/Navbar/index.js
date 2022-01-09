@@ -3,56 +3,39 @@ import {
   NavbarContainer,
   NavbarWrapper,
   NavbarElements,
-  NavLinks,
   NavLinksLogo,
   NavLinksButton,
   MobileIcon,
-  LogoWrapper,Image,Pop
+  LogoWrapper,
+  Image,
+  Pop,
+  NavLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import Icon from "../Images/logoora.png";
 
 const Navbar = ({ toggle }) => {
- 
-
   return (
     <>
       <NavbarContainer>
         <NavbarWrapper>
           <NavbarElements>
             <NavLinksLogo to="/">
-              <LogoWrapper >
-                <Image
-                  src={Icon}
-                  alt="logo"
-                />
-               <Pop>ORRAMO</Pop> 
+              <LogoWrapper>
+                <Image src={Icon} alt="logo" />
+                <Pop>ORRAMO</Pop>
               </LogoWrapper>
             </NavLinksLogo>
           </NavbarElements>
+
           <NavbarElements>
-            <NavLinks
-              spy={true}
-              smooth={true}
-              offset={180}
-              duration={500}
-              to="service"
-            >
-              Services
-            </NavLinks>
+            <NavLink to="/">Charges Calculator</NavLink>
           </NavbarElements>
+
           <NavbarElements>
-            <NavLinks
-              spy={true}
-              smooth={true}
-              offset={0}
-              duration={500}
-              to="download"
-            >
-              Download
-            </NavLinks>
+            {" "}
+            <NavLink to="converter">Currency Converter</NavLink>
           </NavbarElements>
-          <NavbarElements></NavbarElements>
           <NavbarElements>
             <MobileIcon onClick={toggle}>
               <FaBars />

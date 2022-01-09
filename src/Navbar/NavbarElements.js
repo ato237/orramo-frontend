@@ -97,6 +97,20 @@ export const NavLinks = styled(Links)`
     display: none;
   }
 `;
+export const NavLink = styled(LinkR)`
+  text-decoration:none;
+  cursor: pointer;
+  font-size: 17px;
+  color: white;
+
+  &:hover {
+    color: #fca311;
+  }
+
+  @media screen and (max-width: 910px) {
+    display: none;
+  }
+`;
 
 export const MenuBar = styled(bar)`
   display: none;

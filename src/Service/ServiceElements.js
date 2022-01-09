@@ -7,12 +7,25 @@ export const ServicesContainer = styled.section`
   align-self: center;
   padding-top: 300px;
   padding-bottom: 180px;
-
+  @media screen and (max-width: 960px) {
+    height: 1000px;
+  }
+  
   @media screen and (max-width: 768px) {
-    height: 1100px;
+    height: 1200px;
+  }
+  @media screen and (max-width: 710px) {
+    height: 1300px;
+  }
+  @media screen and (max-width: 615px) {
+    height: 1300px;
   }
   @media screen and (max-width: 480px) {
     height: 1300px;
+  }
+
+  @media screen and (max-width: 350px) {
+    height: 1500px;
   }
 `;
 
@@ -68,10 +81,16 @@ export const ServicesH1 = styled.h1`
   font-size: 2.0rem;
   color: #000;
   margin-bottom: 64px;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 44px;
 
+  }
   @media screen and (max-width: 480px) {
     font-size: 2rem;
+
   }
+
+
 `;
 
 export const ServicesH2 = styled.h2`

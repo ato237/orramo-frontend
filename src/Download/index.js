@@ -9,21 +9,19 @@ import {
   ContentH1,
 } from "./DownloadElement";
 import img from "../Images/mobile.svg";
-import axios from "axios";
+import { db } from "../config";
+import { addDoc, collection } from "firebase/firestore/lite";
 
 const Download = () => {
- 
+  const [number, setNumber] = useState("");
   const [phone, setPhone] = useState(true);
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const contactCollectionRef = collection(db, "contact");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post(" https://orramo-backend2.herokuapp.com/api/calculate/data", {
-      email,
-    },{headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}});
-    setMessage("Your info has been Succesfully sent!");
+  const handleSubmit = async () => {
+    await addDoc(contactCollectionRef, { email: email, number: number });
   };
+
   return (
     <DownloadContainer>
       <DownloadWrapper>
@@ -47,7 +45,6 @@ const Download = () => {
           <TextField
             style={phone ? { display: "none" } : { display: "block" }}
             onChange={(e) => setEmail(e.target.value)}
-            value={email}
             id="outlined-basic"
             label="example@gmail.com"
             variant="outlined"
@@ -55,14 +52,12 @@ const Download = () => {
           />
           <TextField
             style={!phone ? { display: "none" } : { display: "block" }}
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            onChange={(e) => setNumber(e.target.value)}
             id="outlined-basic"
             label="6xxx-xxx-xxx"
             variant="outlined"
             helperText="Enter phone number"
           />
-          <h4>{message}</h4>{" "}
           <button
             style={{ background: "transparent", border: "none" }}
             onClick={handleSubmit}
