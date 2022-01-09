@@ -1,6 +1,6 @@
 import React from "react";
 import { SidebarContainer, Icon, CloseIcon } from "./SidebarElements";
-import { SidebarWrapper, SidebarMenu, SidebarLink, SideBtnWrap, SidebarRoute} from "./SidebarElements";
+import { SidebarWrapper, SidebarMenu,SideBtnWrap,SidebarLinkRoute, SidebarRoute} from "./SidebarElements";
 
 
 const Sidebar = ({isOpen,toggle}) => {
@@ -11,12 +11,12 @@ const Sidebar = ({isOpen,toggle}) => {
           </Icon>
           <SidebarWrapper>
               <SidebarMenu>
-                  <SidebarLink to='service' onClick={toggle}>
-                      Service
-                  </SidebarLink>
-                  <SidebarLink to='download' onClick={toggle}>
-                      Download
-                  </SidebarLink>
+                  <SidebarLinkRoute to='/' onClick={toggle}>
+                   Currency Calculator
+                  </SidebarLinkRoute>
+          <SidebarLinkRoute to='/converter' onClick={toggle}>
+                      Currency Converter
+                  </SidebarLinkRoute>
               </SidebarMenu>
               <SideBtnWrap>
                   <SidebarRoute to ='/download' onClick={toggle}>

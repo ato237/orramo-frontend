@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { TextField, Button } from "@material-ui/core";
-import { CalculatorContainer } from "./CalculatorElements";
+import { CurrencyContainer } from "./CurrencyConverter";
 import Axios from "axios";
 
 function TabPanel(props) {
@@ -44,11 +44,7 @@ const withDrawalType = [
   },
   {
     value: "send",
-    label: "Client Transfer",
-  },
-  {
-    value: "sendnone",
-    label: "non-Client Transfer",
+    label: "Sending",
   },
 ];
 
@@ -65,7 +61,7 @@ const theme = createTheme({
       ss: 350,
       xs: 500,
       sm: 600,
-      xx: 300,
+      xx:300,
       md: 768,
       lg: 1280,
       xl: 1920,
@@ -75,11 +71,10 @@ const theme = createTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    boxShadow: "0 10px 10px 3px rgba(8, 28, 21, 0.15) !important",
-    borderRadius: "5px",
+    boxShadow: "10px 10px 10px 5px rgba(0,0,0,0.1) !important",
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-    [theme.breakpoints.up("lg")]: {},
+        [theme.breakpoints.up("lg")]: {},
     zIndex: 99,
   },
   head: {
@@ -99,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
 
   text: {
     marginLeft: "30px",
+    boxShadow: "10px 10px 10px 20px rgba(0,0,0,0.02) !important",
     width: "40%",
     [theme.breakpoints.down("sm")]: {
       // eslint-disable-line no-useless-computed-key
@@ -158,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       // eslint-disable-line no-useless-computed-key
       padding: "0px",
-      fontSize: "18px",
+      fontSize: "25px",
     },
   },
   total: {
@@ -169,20 +165,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       // eslint-disable-line no-useless-computed-key
       padding: "0px ",
-      fontSize: "12px",
+      fontSize: "15px",
     },
   },
-  load: {},
+  load: {
+    
+  },
 }));
 
-const Calculator = () => {
+const Currency = () => {
   const [loading, isLoading] = useState(true);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [values, setValues] = useState(1000);
   const [status, setStatus] = useState("withdraw");
   const [statusmtn, setStatusMtn] = useState("withdraw");
-  const [statusEu, setStatusEu] = useState("withdraw");
 
   const [data, setData] = useState([]);
 
@@ -191,7 +188,7 @@ const Calculator = () => {
     e.preventDefault();
     Axios.post(
       `https://orramo-backend2.herokuapp.com/api/calculate/orange/${values}/${status}`,
-      { headers: { "Access-Control-Allow-Origin": "https://www.orramo.com/" } }
+      {headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}}
     ).then((response) => {
       isLoading(true);
       setData(response.data);
@@ -202,21 +199,8 @@ const Calculator = () => {
 
     e.preventDefault();
     Axios.post(
-      `https://orramo-backend2.herokuapp.com/api/calculate/mtn/${values}/${statusmtn}`,
-      { headers: { "Access-Control-Allow-Origin": "https://www.orramo.com/" } }
-    ).then((response) => {
-      isLoading(true);
-      setData(response.data);
-    });
-  };
-
-  const handleEuSubmit = (e) => {
-    isLoading(false);
-
-    e.preventDefault();
-    Axios.post(
-      `https://orramo-backend2.herokuapp.com/api/calculate/eumoney/${values}/${statusEu}`,
-      { headers: { "Access-Control-Allow-Origin": "https://www.orramo.com/" } }
+      ` https://orramo-backend2.herokuapp.com/api/calculate/mtn/${values}/${statusmtn}`,
+      {headers: {'Access-Control-Allow-Origin': 'https://www.orramo.com/'}}
     ).then((response) => {
       isLoading(true);
       setData(response.data);
@@ -230,31 +214,28 @@ const Calculator = () => {
   const handleStatus = (e) => {
     e.preventDefault();
     setStatus(e.target.value);
+    console.log(status);
   };
   const handleMtnStatus = (e) => {
     e.preventDefault();
     setStatusMtn(e.target.value);
-  };
-
-  const handleEuStatus = (e) => {
-    e.preventDefault();
-    setStatusEu(e.target.value);
+    console.log(status);
   };
 
   const handleSetValue = (e) => {
     setValues(e.target.value);
+    console.log(values);
     e.preventDefault();
   };
-
   return (
     <>
-      <CalculatorContainer>
+      <CurrencyContainer>
         <div className={classes.root}>
           <AppBar position="static">
             <Tabs
               TabIndicatorProps={{
                 style: {
-                  backgroundColor: "#fca311",
+                  backgroundColor: "#D65108",
                 },
               }}
               centered
@@ -265,24 +246,16 @@ const Calculator = () => {
             >
               <Tab
                 onClick={handleSubmit}
-                label="ORANGE MONEY"
+                label="Foreign Exchange"
                 {...a11yProps(0)}
               />
               <Tab
                 onClick={handleMtnSubmit}
-                label="MTN MoMo"
-                {...a11yProps(1)}
-              />
-              <Tab
-                onClick={handleMtnSubmit}
-                label="EU Money"
+                label="Crypto Currency"
                 {...a11yProps(1)}
               />
             </Tabs>
           </AppBar>
-
-          {/**OrangeMoney */}
-
           <TabPanel value={value} index={0}>
             <form className={classes.form}>
               <TextField
@@ -321,7 +294,9 @@ const Calculator = () => {
                 type="submit"
               >
                 {!loading ? (
-                  <CircularProgress className={classes.load} />
+                  <CircularProgress
+                    className={classes.load}
+                  />
                 ) : (
                   <p>Calculate</p>
                 )}
@@ -329,70 +304,28 @@ const Calculator = () => {
             </form>
             {data.map((datum) => (
               <h1 key={1}>
-                {status === "withdraw" ? (
+                {status !== "withdraw" ? (
                   <h1 className={classes.charge}>
-                    Orange Withdrawal Charges : {datum.orangeCharge} Fcfa
+                    Sending Charges : {datum.orangeCharge} Fcfa
                   </h1>
-                ) : null}
-              </h1>
-            ))}
-            {data.map((datum) => (
-              <h1 key={1}>
-                {status === "send" ? (
+                ) : (
                   <h1 className={classes.charge}>
-                    Orange Client Transfer Charges : {datum.orangeCharge} Fcfa
+                    Withdrawal charges : {datum.orangeCharge} Fcfa
                   </h1>
-                ) : null}
+                )}
               </h1>
-            ))}
-
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "withdraw" ? (
-                  <h3>
-                    Total Amount To Be In Balance : {datum.orangeTotal} Fcfa
-                  </h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "send" ? (
-                  <h3>Total Amount To Be Deduced : {datum.orangeTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.charge} key={2}>
-                {status === "sendnone" ? (
-                  <h4>
-                    Non-Orange Client Transfer Charges : {datum.orangeCharge}{" "}
-                    Fcfa
-                  </h4>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "sendnone" ? (
-                  <h3>Total Amount To Be Deduced : {datum.orangeTotal} Fcfa</h3>
-                ) : null}
-              </h3>
             ))}
 
             {data.map((datum) => (
               <h3 className={classes.total} key={2}>
                 {status !== "send" ? (
-                  <h3>Tax : {datum.orangeTax} Fcfa</h3>
+                  <h3>Total Amount to have : {datum.orangeTotal} Fcfa</h3>
                 ) : (
-                  <h3>Tax : {datum.orangeTax} Fcfa</h3>
+                  <h3>Amount to be deduced : {datum.orangeTotal} Fcfa</h3>
                 )}
               </h3>
             ))}
           </TabPanel>
-
-          {/**Mtn Mobile Money */}
-
           <TabPanel value={value} index={1}>
             <form className={classes.form}>
               <TextField
@@ -431,7 +364,9 @@ const Calculator = () => {
                 type="submit"
               >
                 {!loading ? (
-                  <CircularProgress className={classes.load} />
+                  <CircularProgress
+                    className={classes.load}
+                  />
                 ) : (
                   <p>Calculate</p>
                 )}
@@ -440,176 +375,31 @@ const Calculator = () => {
 
             {data.map((datum) => (
               <h1 key={1}>
-                {status === "withdraw" ? (
+                {statusmtn === "send" ? (
                   <h1 className={classes.charge}>
-                    MTN Withdrawal Charges : {datum.mtnCharge} Fcfa
+                    Sending Charges : {datum.mtnCharge} Fcfa
                   </h1>
-                ) : null}
-              </h1>
-            ))}
-            {data.map((datum) => (
-              <h1 key={1}>
-                {status === "send" ? (
-                  <h1 className={classes.charge}>
-                    MTN Client Transfer Charges : {datum.mtnCharge} Fcfa
-                  </h1>
-                ) : null}
-              </h1>
-            ))}
-
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "withdraw" ? (
-                  <h3>Total Amount To Be In Balance : {datum.mtnTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "send" ? (
-                  <h3>Total Amount To Be Deduced : {datum.mtnTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.charge} key={2}>
-                {status === "sendnone" ? (
-                  <h4>
-                    Non-MTN Client Transfer Charges : {datum.mtnCharge} Fcfa
-                  </h4>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "sendnone" ? (
-                  <h3>Total Amount To Be Deduced : {datum.mtnTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status !== "send" ? (
-                  <h3>Tax : {datum.mtnTax} Fcfa</h3>
                 ) : (
-                  <h3>Tax : {datum.mtnTax} Fcfa</h3>
+                  <h1 className={classes.charge}>
+                    Withdrawal charges : {datum.mtnCharge} Fcfa
+                  </h1>
                 )}
-              </h3>
-            ))}
-          </TabPanel>
-
-          {/**EU Money */}
-
-          <TabPanel value={value} index={2}>
-            <form className={classes.form}>
-              <TextField
-                onChange={handleSetValue}
-                value={values}
-                className={classes.text}
-                id="outlined-basic"
-                label="XAF"
-                variant="outlined"
-                helperText="EU MONEY"
-              />
-              <TextField
-                className={classes.text}
-                value={statusEu}
-                onClick={handleEuSubmit}
-                onChange={handleEuStatus}
-                id="outlined-select-currency-native"
-                select
-                SelectProps={{
-                  native: true,
-                }}
-                helperText="Please Select charge type"
-                variant="outlined"
-              >
-                {withDrawalType.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
-
-              <Button
-                onClick={handleEuSubmit}
-                className={classes.button}
-                variant="contained"
-                type="submit"
-              >
-                {!loading ? (
-                  <CircularProgress className={classes.load} />
-                ) : (
-                  <p>Calculate</p>
-                )}
-              </Button>
-            </form>
-
-            {data.map((datum) => (
-              <h1 key={1}>
-                {status === "withdraw" ? (
-                  <h1 className={classes.charge}>
-                    EU Money Withdrawal Charges : {datum.euCharge} Fcfa
-                  </h1>
-                ) : null}
               </h1>
             ))}
             {data.map((datum) => (
-              <h1 key={1}>
-                {status === "send" ? (
-                  <h1 className={classes.charge}>
-                    EU Money Client Transfer Charges : {datum.euCharge} Fcfa
-                  </h1>
-                ) : null}
-              </h1>
-            ))}
-
-            {data.map((datum) => (
               <h3 className={classes.total} key={2}>
-                {status === "withdraw" ? (
-                  <h3>Total Amount To Be In Balance : {datum.euTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "send" ? (
-                  <h3>Total Amount To Be Deduced : {datum.euTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.charge} key={2}>
-                {status === "sendnone" ? (
-                  <h4>
-                    Non-EU Money Client Transfer Charges : {datum.euCharge} Fcfa
-                  </h4>
-                ) : null}
-              </h3>
-            ))}
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status === "sendnone" ? (
-                  <h3>Total Amount To Be Deduced : {datum.euTotal} Fcfa</h3>
-                ) : null}
-              </h3>
-            ))}
-
-            {data.map((datum) => (
-              <h3 className={classes.total} key={2}>
-                {status !== "send" ? (
-                  <h3>Tax : 0 Fcfa</h3>
+                {statusmtn !== "send" ? (
+                  <h3>Total Amount to have : {datum.mtnTotal} Fcfa</h3>
                 ) : (
-                  <h3>Tax : 0 Fcfa</h3>
+                  <h3>Amount to be deduced : {datum.mtnTotal} Fcfa</h3>
                 )}
               </h3>
             ))}
           </TabPanel>
         </div>
-      </CalculatorContainer>
+          </CurrencyContainer>
     </>
   );
 };
 
-export default Calculator;
+export default Currency;

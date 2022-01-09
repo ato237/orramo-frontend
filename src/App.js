@@ -6,6 +6,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import Thankyou from "./Sidenav/Thankyou";
 import Sidebar from "./Sidebar";
+import CurrencyPage from "./PageOranizer/CurrencyPage";
 
 function App() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,10 +21,10 @@ function App() {
         <Sidebar isOpen={isOpen} toggle={toggle}/>
       <Navbar toggle={toggle} />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/download" exact component={Download} />
-          <Route path ="/download/thank-you" exact component ={Thankyou}/>
-
+          <Route exact path="/" component={Home} />
+          <Route exact path="/download"  component={Download} />
+          <Route exact path ="/download/thank-you"  component ={Thankyou}/>
+          <Route exact path = "/converter" component ={CurrencyPage}/>
         </Switch>
         <Footer/>
       </Router>
