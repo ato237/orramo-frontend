@@ -12,7 +12,7 @@ import {
   NavLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
-import Icon from "../Images/logoora.png";
+import Icon from "../Images/adaptive-icon.png";
 
 const Navbar = ({ toggle }) => {
   return (

@@ -22,7 +22,7 @@ export const LogoWrapper = styled.div`
 export const Pop = styled.p`
 position: relative;
 bottom: 105px;
-left: 70px;
+left: 80px;
 `;
 
 export const Image = styled.img`
@@ -30,6 +30,7 @@ export const Image = styled.img`
   position: relative;
   bottom: 30px;
   left: 10px;
+  bottom:25px;
 `;
 export const NavbarElements = styled.li`
   padding-left: 40px;
