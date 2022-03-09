@@ -24,7 +24,7 @@ const Footer = () => {
             <FooterLinkItems></FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle> Mobile App</FooterLinkTitle>
-              <FooterLink to="/download">Get it Now</FooterLink>
+              <FooterLink to="/">Get it Now</FooterLink>
               <FooterLink to="/download">More Info</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>

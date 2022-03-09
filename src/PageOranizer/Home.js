@@ -3,13 +3,14 @@ import MainContent from "../MainContent";
 import Services from "../Service";
 import ContentSection from "../ContentSection";
 import Banner from "../Helper/Banner";
+import InfoSection from "../Info";
 
 function Home() {
   return (
     <>
         <MainContent />
         <Services />
-        <Banner/>
+        <InfoSection/>
         <ContentSection />
     </>
   );
