@@ -5,7 +5,7 @@ const MainContent = () => {
   return (
     <>
       <MainContentContainer >
-        <MainContentTitle>Orramo Charges Calculator</MainContentTitle>
+        <MainContentTitle>Mobile Money Charges Calculator</MainContentTitle>
         <MainContentHeading>
           Calculate mobile money Charges Fast and easily using Orramo's
           simplified Calculator
