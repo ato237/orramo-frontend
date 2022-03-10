@@ -8,7 +8,6 @@ import Thankyou from "./Sidenav/Thankyou";
 import Sidebar from "./Sidebar";
 import CurrencyPage from "./PageOranizer/CurrencyPage";
 
-import Ads from "./Ads";
 
 function App() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -19,7 +18,6 @@ function App() {
   return (
     <>
       <Router>
-     <Ads/>
         <Sidebar isOpen={isOpen} toggle={toggle}/>
       <Navbar toggle={toggle} />
         <Switch>
