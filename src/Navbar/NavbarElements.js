@@ -25,8 +25,8 @@ bottom: 105px;
 left: 80px;
 @media screen and (max-width: 910px) {
     transition: 0.2s ease-in-out;
-    bottom:62px;
-    left:65px ;
+   // bottom:62px;
+   // left:65px ;
   }
 `;
 
@@ -39,7 +39,7 @@ export const Image = styled.img`
   @media screen and (max-width: 910px) {
     transition: 0.2s ease-in-out;
     left: 0;
-    top: 20px;
+    //top: 20px;
   }
 `;
 export const NavbarElements = styled.li`
@@ -65,7 +65,7 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 910px) {
     display: block;
     position: absolute;
-    top: 30px;
+    top: 0; // change to 30 for ads
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
