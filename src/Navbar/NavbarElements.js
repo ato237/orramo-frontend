@@ -23,6 +23,11 @@ export const Pop = styled.p`
 position: relative;
 bottom: 105px;
 left: 80px;
+@media screen and (max-width: 910px) {
+    transition: 0.2s ease-in-out;
+    bottom:62px;
+    left:65px ;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,6 +36,11 @@ export const Image = styled.img`
   bottom: 30px;
   left: 10px;
   bottom:25px;
+  @media screen and (max-width: 910px) {
+    transition: 0.2s ease-in-out;
+    left: 0;
+    top: 20px;
+  }
 `;
 export const NavbarElements = styled.li`
   padding-left: 40px;
@@ -55,7 +65,7 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 910px) {
     display: block;
     position: absolute;
-    top: 0;
+    top: 30px;
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
