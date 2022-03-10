@@ -5,8 +5,10 @@ import ContentSection from "../ContentSection";
 import InfoSection from "../Info";
 
 function Home() {
+ 
   return (
     <>
+  
         <MainContent />
         <Services />
         <InfoSection/>
