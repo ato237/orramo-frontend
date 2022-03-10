@@ -6,7 +6,6 @@ import {
   ContentSectionText,
   ContentH1,
   ContentP,
-  ContentAction,
   Div,
 } from "./InfoElements";
 import "aos/dist/aos.css";
