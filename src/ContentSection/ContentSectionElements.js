@@ -9,7 +9,11 @@ export const ContentSectionContainer = styled.section`
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+  @media screen and (max-width: 830px) {
+    display: block;
+    justify-content: center;
 
+  }
  
 `;
 export const ContentSectionWrapper = styled.div`
@@ -25,13 +29,28 @@ export const ContentSectionWrapper = styled.div`
   }
 `;
 export const ContentSectionPhoto = styled.img`
-  width: 500px;
+  width: 250px;
   height: 500px;
 
   @media screen and (max-width: 830px) {
+    position: relative;
+    left: 120px;
+    bottom: 50px;
     transition: 0.2s ease-in-out;
-    width: 350px !important;
-    height: 350px !important;
+    width: 170px !important;
+    height: 360px !important;
+        text-align: center;
+
+  }
+  @media screen and (max-width: 400px) {
+    position: relative;
+    left: 80px;
+    bottom: 50px;
+    transition: 0.2s ease-in-out;
+    width: 170px !important;
+    height: 360px !important;
+        text-align: center;
+
   }
   @media screen and (max-width: 360px) {
     margin-left: 50px;
@@ -43,7 +62,7 @@ export const ContentSectionPhoto = styled.img`
 export const ContentSectionText = styled.div`
 `;
 export const ContentH1 = styled.h1`
-  font-size: 20px;
+  font-size: 25px;
   color: #5c667b;
   max-width: 500px;
   @media screen and (max-width: 830px) {
@@ -58,8 +77,10 @@ export const ContentH1 = styled.h1`
 export const ContentP = styled.p`
   font-weight: 500;
   color: black;
-  max-width: 500px;
+  max-width: 400px;
+  position: relative;
   @media screen and (max-width: 830px) {
+
     transition: 0.2s ease-in-out;
     display: flex;
     text-align: center;
@@ -68,6 +89,8 @@ export const ContentP = styled.p`
   @media screen and (max-width: 400px) {
       margin-left: 30px;
     max-width: 300px;
+    text-align: center;
+right: 20px;
 
   }
   @media screen and (max-width: 360px) {
@@ -82,11 +105,10 @@ text-decoration: none;
   color: black;
   border: none;
   font-size: 20px;
-  margin-top: 80px;
   padding: 15px 50px;
   border-radius: 5px;
-  margin-top: 40px;
-
+position: relative;
+top:40px;
 
   &:hover {
     opacity: 80%;
@@ -110,13 +132,13 @@ text-decoration: none;
   @media screen and (max-width: 557px) {
     transition: 0.2s ease-in-out;
     margin: 40px 130px;
-    padding: 5px 30px;
-    font-size: 14px;
+    padding: 5px 10px;
+    font-size: 15px;
   }
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 400px) {
     transition: 0.2s ease-in-out;
-    margin: 40px 125px;
-    padding: 5px 5px;
+    margin: 40px 115px;
+    padding: 5px 1px;
     font-size: 14px;
   }
   @media screen and (max-width: 360px) {

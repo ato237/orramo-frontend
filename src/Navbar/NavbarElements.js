@@ -56,7 +56,7 @@ export const NavLinksLogo = styled(LinkR)`
   @media screen and (max-width: 910px) {
     transition: 0.2s ease-in-out;
     left: 0;
-    //top: 20px;
+    top: 20px;
   }
 `;
 export const MobileIcon = styled.div`

@@ -15,7 +15,11 @@ export const ContentSectionContainer = styled.section`
   padding: 0 24px;
   justify-content: center;
   @media screen and (max-width: 830px) {
-  height: 800px;
+  height: 900px;
+
+  }
+  @media screen and (max-width: 400px) {
+  height: 1100px;
 
   }
  
@@ -45,7 +49,7 @@ export const ContentSectionPhoto = styled.img`
     margin-left: 50px;
     transition: 0.2s ease-in-out;
     width: 250px !important;
-    height: 300px !important;
+    height: 250px !important;
 
   }
 `;
@@ -79,7 +83,7 @@ export const ContentP = styled.p`
   }
   @media screen and (max-width: 360px) {
       margin-left: 20px;
-    max-width: 250px;
+    max-width: 400px;
 
   }
 `;

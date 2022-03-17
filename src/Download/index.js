@@ -1,73 +1,45 @@
-import React, { useState } from "react";
-import { TextField } from "@material-ui/core";
+import React, { useEffect } from "react";
 import {
-  DownloadContainer,
-  DownloadWrapper,
-  Form,
-  NotifyButton,
-  Image,
+  ContentSectionContainer,
+  ContentSectionWrapper,
+  ContentSectionPhoto,
+  ContentSectionText,
   ContentH1,
+  ContentP,
+  ContentLink,
+  Image,
+  Image2
 } from "./DownloadElement";
-import img from "../Images/mobile.svg";
-import { db } from "../config";
-import { addDoc, collection } from "firebase/firestore/lite";
+import "aos/dist/aos.css";
+import Aos from "aos";
+import Icon from "../Images/iphoneM.jpg";
+import Icon1 from "../Images/appstore.png";
+
+import Icon2 from "../Images/googleplay.png";
 
 const Download = () => {
-  const [number, setNumber] = useState("");
-  const [phone, setPhone] = useState(true);
-  const [email, setEmail] = useState("");
-  const contactCollectionRef = collection(db, "contact");
-
-  const handleSubmit = async () => {
-    await addDoc(contactCollectionRef, { email: email, number: number });
-  };
-
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
-    <DownloadContainer>
-      <DownloadWrapper>
-        <Image src={img} />
-
-        <Form>
-          <ContentH1>Get Notified on release!</ContentH1>
-          <TextField
-            onChange={() => setPhone(!phone)}
-            id="outlined-select-currency-native"
-            select
-            SelectProps={{
-              native: true,
-            }}
-            helperText="Please Select Info Type"
-            variant="outlined"
-          >
-            <option>Phone Number</option>
-            <option>Email Address</option>
-          </TextField>
-          <TextField
-            style={phone ? { display: "none" } : { display: "block" }}
-            onChange={(e) => setEmail(e.target.value)}
-            id="outlined-basic"
-            label="example@gmail.com"
-            variant="outlined"
-            helperText="Enter email"
-          />
-          <TextField
-            style={!phone ? { display: "none" } : { display: "block" }}
-            onChange={(e) => setNumber(e.target.value)}
-            id="outlined-basic"
-            label="6xxx-xxx-xxx"
-            variant="outlined"
-            helperText="Enter phone number"
-          />
-          <button
-            style={{ background: "transparent", border: "none" }}
-            onClick={handleSubmit}
-          >
-            {" "}
-            <NotifyButton to="/download/thank-you">Notify Me! </NotifyButton>
-          </button>
-        </Form>
-      </DownloadWrapper>
-    </DownloadContainer>
+    <ContentSectionContainer>
+      <ContentSectionWrapper>
+        <ContentSectionPhoto src={Icon} />
+        <ContentSectionText>
+          <ContentH1>Download Orramo on Android or IOS Now!</ContentH1>
+          <ContentP>
+            Download our mobile app now and get access to the latest charges and
+            a smoother experience overall
+          </ContentP>
+          <ContentLink href="https://apps.apple.com/us/app/orramo/id1613760471">
+            <Image src={Icon1} />
+          </ContentLink>
+          <ContentLink href="https://play.google.com/store/apps/details?id=com.atoproduction.orramo&fbclid=IwAR2JkttqJ1hfVufeE-x8X0loyAQVCz1MhVPSbtCnG_X4-_hlrOiobaWYgKA">
+            <Image2 src={Icon2} />
+          </ContentLink>
+        </ContentSectionText>
+      </ContentSectionWrapper>
+    </ContentSectionContainer>
   );
 };
 
