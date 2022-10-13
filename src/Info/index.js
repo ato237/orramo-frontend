@@ -14,7 +14,7 @@ import Icon from "../Images/imgf.svg";
 
 const ContentSection = () => {
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration:2000 });
   }, []);
   return (
       <Div data-aos="fade-up" id="download">
