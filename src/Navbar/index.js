@@ -1,52 +1,60 @@
-import React from "react";
-import {
-  NavbarContainer,
-  NavbarWrapper,
-  NavbarElements,
-  NavLinksLogo,
-  NavLinksButton,
-  MobileIcon,
-  LogoWrapper,
-  Image,
-  Pop,
-  NavLink,
-} from "./NavbarElements";
-import { FaBars } from "react-icons/fa";
-import Icon from "../Images/adaptive-icon.png";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
+import { ImCross } from "react-icons/im";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const Navbar = ({ toggle }) => {
+function Navbar({clicked, isClicked}) {
+
+  const handleClicked = () => {
+    isClicked(!clicked);
+    console.log("clicked")
+  };
   return (
-    <>
-      <NavbarContainer>
-        <NavbarWrapper>
-          <NavbarElements>
-            <NavLinksLogo to="/">
-              <LogoWrapper>
-                <Image src={Icon} alt="logo" />
-                <Pop>ORRAMO</Pop>
-              </LogoWrapper>
-            </NavLinksLogo>
-          </NavbarElements>
+    <div className="Nav">
+      <ul className="NavbarWrapper">
+        <li className="NavLogo">
+          <Link style={{textDecoration:'none', color:'white'}} to="/">
+            Orramo
+          </Link>
+        </li>
+        <li className="NavElements">
+          <NavLink className="Link" to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className="NavElements">
+          <NavLink className="Link" to="/charges-calculator">
+            Charges Calculator
+          </NavLink>
+        </li>
+        <li className="NavElements">
+          <NavLink className="Link" to="/subcriptions">
+            Subscriptions
+          </NavLink>
+        </li>
 
-          <NavbarElements>
-            <NavLink to="/">Charges Calculator</NavLink>
-          </NavbarElements>
-
-          <NavbarElements>
-            {" "}
-            <NavLink to="converter">Currency Converter</NavLink>
-          </NavbarElements>
-          <NavbarElements>
-            <MobileIcon onClick={toggle}>
-              <FaBars />
-            </MobileIcon>
-
-            <NavLinksButton to="download">Get the App</NavLinksButton>
-          </NavbarElements>
-        </NavbarWrapper>
-      </NavbarContainer>
-    </>
+        <li className="NavButton">
+          <NavLink className="Link" to="/sign-up">
+            Sign Up
+          </NavLink>
+        </li>
+        <li
+          className="NavElements"
+          style={{ float: "right", margin: "-8px 2px 1px 2px" }}
+        >
+          <NavLink className="Link" to="/sign-in">
+            Sign In
+          </NavLink>
+        </li>
+      </ul>
+      {!clicked ? (
+        <GiHamburgerMenu onClick={handleClicked} className="Icon" />
+      ) : (
+        <ImCross onClick={handleClicked} className="Icon" />
+      )}
+    </div>
   );
-};
+}
 
 export default Navbar;
